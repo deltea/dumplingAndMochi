@@ -1,14 +1,5 @@
-class Game extends Phaser.Scene {
-  constructor() {
-    super("Game");
-  }
-  preload() {
+// Game object
+let game = {};
 
-  }
-  create() {
-
-  }
-  update() {
-
-  }
-}
+// Phaser game
+const phaserGame = new Phaser.Game(config);
