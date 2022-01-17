@@ -13,7 +13,8 @@ class Game extends Phaser.Scene {
 
     // Sprite setup
     game.draggable.setInteractive();
-    game.draggable.setDragX(500);
+    game.draggable.setDragX(400);
+    game.draggable.setBounce(0.8);
     this.input.setDraggable(game.draggable);
 
     // Mouse input
@@ -25,6 +26,7 @@ class Game extends Phaser.Scene {
     });
     this.input.on("drag", function (pointer, sprite, x, y) {
       sprite.setGravityY(-config.physics.arcade.gravity.y);
+      sprite.setVelocity(0, 0);
       sprite.x = x;
       sprite.y = y;
     });
@@ -36,6 +38,13 @@ class Game extends Phaser.Scene {
         sprite.setVelocityX(800);
       } else {
         sprite.setVelocityX(0);
+      }
+      if (pointer.y < sprite.y) {
+        sprite.setVelocityY(-800);
+      } else if (pointer.y > sprite.y) {
+        sprite.setVelocityY(800);
+      } else {
+        sprite.setVelocityY(0);
       }
     })
   }
