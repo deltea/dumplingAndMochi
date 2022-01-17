@@ -13,6 +13,7 @@ class Game extends Phaser.Scene {
 
     // Sprite setup
     game.draggable.setInteractive();
+    game.draggable.setDragX(500);
     this.input.setDraggable(game.draggable);
 
     // Mouse input
